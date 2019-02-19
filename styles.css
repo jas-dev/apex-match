@@ -1,0 +1,61 @@
+html{
+    font-size: 3vmin;
+}
+
+body{
+    margin: 0;
+}
+.gameMenuHeader{
+    height: 10vh;
+    background-color: red;
+    font-size: 1rem;
+    display: flex;
+}
+.gameLogo{
+    height: 10vh;
+    background-color: lime;
+    display:flex;
+
+}
+.sideBarLeft{
+
+}
+.gameInfoArea{
+
+}
+.stat1{
+
+}
+.stat2{
+
+}
+.stat3{
+
+}
+.stat4{
+
+}
+.stat5{
+
+}
+.resetGame{
+
+}
+.mainCopy{
+
+}
+.gameArea{
+
+}
+.cardContainer{
+
+}
+.cardRow1{
+
+}
+.cardRow2{
+
+}
+.cardRow3{
+
+}
