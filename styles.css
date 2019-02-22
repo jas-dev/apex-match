@@ -1,25 +1,94 @@
-html{
-    font-size: 3vmin;
-}
+
 body{
     margin: 0;
-    position: relative;
-
 }
-.gameMenuHeader{
-    height: 10vh;
+header{
+    height: 12vh;
     background-color: red;
-    font-size: 1rem;
-    position: absolute;
+    display: flex;
 
 }
 .gameLogo{
-    height: 10vh;
+    height: 12vh;
+    width: 15%;
     background-color: lime;
     position: relative;
-    display: inline-flex;
 
 }
+.play{
+    height: 11vh;
+    width:20%;
+    background-color: lime;
+    position: relative;
+
+}
+.tries{
+    height: 11vh;
+    width:20%;
+    background-color: lime;
+    position: relative;
+
+}
+.accuracy{
+    height: 11vh;
+    width:20%;
+    background-color: lime;
+    position: relative;
+
+}
+header div{
+    height: 100%;
+    margin: 0 auto;
+    border: solid black 1px;
+    justify-content: space-between;
+}
+main{
+    height: 84vh;
+    background-color: darkgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gameArea{
+    height: 85%;
+    width: 80%;
+    background-color: pink;
+
+}
+.cardContainer{
+    height: 100%;
+    width: 99%;
+    background-color: #888888;
+    margin: auto;
+}
+footer{
+    display: flex;
+    background-color: blue;
+    height: 4vh;
+    justify-content: space-between;
+}
+.reset{
+    height: 100%;
+    width: 10%;
+    background-color: whitesmoke;
+}
+.about{
+    height: 100%;
+    width: 10%;
+    background-color: whitesmoke;
+}
+
+
+
+
+
+
+
+/**********************************
+html{
+    font-size: 3vmin;
+}
+
 .sideBarLeft{
     height: 100vh;
     background-color: blue;
