@@ -49,7 +49,7 @@ main{
     align-items: center;
     justify-content: center;
 }
-.gameArea{
+#gameArea{
     height: 85%;
     width: 80%;
     background-color: pink;
@@ -84,72 +84,3 @@ footer{
 
 
 
-/**********************************
-html{
-    font-size: 3vmin;
-}
-
-.sideBarLeft{
-    height: 100vh;
-    background-color: blue;
-    display:inline-flex;
-
-}
-.gameInfoArea{
-    height:50vh;
-    background-color: #2e6da4;
-}
-.stat1{
-    height: 5vh;
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.stat2{
-    height: 5vh;
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.stat3{
-    height: 5vh;
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.stat4{
-    height: 5vh;
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.stat5{
-    height: 5vh;
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.resetGame{
-    height: 8vh;
-    background-color: yellow;
-    border: solid 1px;
-}
-.mainCopy{
-    background-color: darkolivegreen;
-
-}
-.gameArea{
-    background-color: #888888;
-
-}
-.cardContainer{
-    background-color: pink;
-
-}
-.cardRow1{
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.cardRow2{
-    background-color: whitesmoke;
-    border: solid 1px;
-}
-.cardRow3{
-    background-color: whitesmoke;
-    border: solid 1px;
-}
