@@ -47,45 +47,47 @@ header div{
 main{
     height: 84vh;
     background-color: darkgreen;
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
+    align-content: center;
+    position: relative;
 }
 #game-area{
     background-color: #46b8da;
-    height: 100%;
-    width: 100%;
+    height: 95%;
+    width: 95%;
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+
 }
 .card{
-    height: 33%;
-    width: 22.5%;
+    height: 25%;
+    width: 16%;
     position: relative;
+    background-color: darkviolet;
+    border: 1px solid black;
 }
 .front{
     height:100%;
     width: 100%;
     position: absolute;
+    background-image: url("img/Apex-Legends-Sub-Machine-Guns.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .back{
-
-}
-.front img{
-    height: auto;
-    width: 30%;
-    position: relative;
-    top: 25%;
-    left: 25%;
-}
-.back img{
-    height: auto;
-    width: 60%;
+    height:100%;
+    width: 100%;
     position: absolute;
-    left: 20px;
+    background-image: url("img/apex_icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 footer{
     display: flex;
