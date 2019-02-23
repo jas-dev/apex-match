@@ -1,0 +1,112 @@
+
+body{
+    margin: 0;
+}
+header{
+    height: 12vh;
+    background-color: red;
+    display: flex;
+
+}
+.game-logo{
+    height: 11vh;
+    width: 15%;
+    background-color: lime;
+    position: relative;
+
+}
+.games-played{
+    height: 11vh;
+    width:20%;
+    background-color: lime;
+    position: relative;
+
+}
+.attempts{
+    height: 11vh;
+    width:20%;
+    background-color: lime;
+    position: relative;
+
+}
+.accuracy{
+    height: 11vh;
+    width:20%;
+    background-color: lime;
+    position: relative;
+
+}
+header div{
+    height: 50%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.value{
+    border-top: 1px solid black;
+}
+main{
+    height: 84vh;
+    background-color: darkgreen;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+#game-area{
+    background-color: #46b8da;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card{
+    height: 33%;
+    width: 22.5%;
+    position: relative;
+}
+.front{
+    height:100%;
+    width: 100%;
+    position: absolute;
+}
+.back{
+
+}
+.front img{
+    height: auto;
+    width: 30%;
+    position: relative;
+    top: 25%;
+    left: 25%;
+}
+.back img{
+    height: auto;
+    width: 60%;
+    position: absolute;
+    left: 20px;
+}
+footer{
+    display: flex;
+    background-color: blue;
+    height: 4vh;
+    justify-content: space-between;
+}
+.reset{
+    height: 100%;
+    width: 10%;
+    background-color: whitesmoke;
+}
+.about{
+    height: 100%;
+    width: 10%;
+    background-color: whitesmoke;
+}
+
+
+
+
+
+
+
