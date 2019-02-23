@@ -8,21 +8,21 @@ header{
     display: flex;
 
 }
-.gameLogo{
-    height: 12vh;
+.game-logo{
+    height: 11vh;
     width: 15%;
     background-color: lime;
     position: relative;
 
 }
-.play{
+.games-played{
     height: 11vh;
     width:20%;
     background-color: lime;
     position: relative;
 
 }
-.tries{
+.attempts{
     height: 11vh;
     width:20%;
     background-color: lime;
@@ -37,29 +37,56 @@ header{
 
 }
 header div{
-    height: 100%;
+    height: 50%;
     margin: 0 auto;
-    border: solid black 1px;
     justify-content: space-between;
+}
+.value{
+    border-top: 1px solid black;
 }
 main{
     height: 84vh;
     background-color: darkgreen;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
 }
-#gameArea{
-    height: 85%;
-    width: 80%;
-    background-color: pink;
+#game-area{
+    background-color: #46b8da;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
 
 }
-.cardContainer{
-    height: 100%;
-    width: 99%;
-    background-color: #888888;
-    margin: auto;
+.card{
+    height: 33%;
+    width: 22.5%;
+    position: relative;
+}
+.front{
+    height:100%;
+    width: 100%;
+    position: absolute;
+}
+.back{
+
+}
+.front img{
+    height: auto;
+    width: 30%;
+    position: relative;
+    top: 25%;
+    left: 25%;
+}
+.back img{
+    height: auto;
+    width: 60%;
+    position: absolute;
+    left: 20px;
 }
 footer{
     display: flex;
