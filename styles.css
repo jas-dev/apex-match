@@ -105,7 +105,9 @@ footer{
     width: 10%;
     background-color: whitesmoke;
 }
-
+.revealed >.back{
+    display: none;
+}
 
 
 
