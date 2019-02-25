@@ -3,50 +3,52 @@ body{
     margin: 0;
 }
 header{
-    height: 12vh;
-    background-color: red;
+    height: 8vh;
+    background-color: brown;
     display: flex;
-
+    align-items: flex-start;
+    font-size: 15px;
 }
 .game-logo{
-    height: 11vh;
-    width: 15%;
-    background-color: lime;
+    height: 100%;
+    width: 16%;
     position: relative;
-
+    left: 2%;
+    background-image: url("img/apex_icon2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
-.games-played{
-    height: 11vh;
-    width:20%;
-    background-color: lime;
+.games-played, .attempts, .accuracy{
+    height: 100%;
+    width: 12%;
     position: relative;
-
+    left: 12%;
+    margin: 0 1px;
+    font-size: 3vmin;
+    color: whitesmoke;
 }
-.attempts{
-    height: 11vh;
-    width:20%;
-    background-color: lime;
+.about{
+    height: 40%;
+    width: 25%;
     position: relative;
-
+    left: 20%;
+    font-size: 2vmin;
+    color: whitesmoke;
 }
-.accuracy{
-    height: 11vh;
-    width:20%;
-    background-color: lime;
-    position: relative;
-
-}
-header div{
-    height: 50%;
-    margin: 0 auto;
-    justify-content: space-between;
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 .value{
     border-top: 1px solid black;
 }
 main{
-    height: 84vh;
-    background-color: darkgreen;
+    height: 88vh;
+    background-color: rgba(55,55,65,0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,8 +56,7 @@ main{
     position: relative;
 }
 #game-area{
-    background-color: #46b8da;
-    height: 95%;
+    height: 90%;
     width: 95%;
     margin: auto;
     display: flex;
@@ -68,14 +69,11 @@ main{
     height: 25%;
     width: 16%;
     position: relative;
-    background-color: darkviolet;
-    border: 1px solid black;
 }
 .front{
     height:100%;
     width: 100%;
     position: absolute;
-    background-image: url("img/Apex-Legends-Sub-Machine-Guns.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -84,25 +82,25 @@ main{
     height:100%;
     width: 100%;
     position: absolute;
-    background-image: url("img/apex_icon.png");
+    background-image: url("img/Apex-Legends-Blank.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 footer{
     display: flex;
-    background-color: blue;
+    background-color: rgba(55,55,65,0.85);
     height: 4vh;
     justify-content: space-between;
 }
 .reset{
     height: 100%;
-    width: 10%;
+    width: 6%;
     background-color: whitesmoke;
 }
-.about{
+.settings{
     height: 100%;
-    width: 10%;
+    width: 6%;
     background-color: whitesmoke;
 }
 .revealed >.back{
