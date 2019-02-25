@@ -11,8 +11,6 @@ var accuracy = 0 + "%";
 var canBeClicked = true;
 
 
-
-
 function startGame(){
     console.log('Game started');
     addEventHandlers();
@@ -82,8 +80,6 @@ function display_stats(){
         var accuracyConverted= (accuracy*100).toFixed(2)+ "%";
         $('.accuracy .value').text(accuracyConverted);
     }
-
-
 
 }
 
