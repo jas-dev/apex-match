@@ -9,12 +9,14 @@ var gamesPlayed = 0;
 var attempts = 0;
 var accuracy = 0 + "%";
 var canBeClicked = true;
+var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','Image6.png','Image7.png','Image8.png','Image9.png'];
 
 
 function startGame(){
     console.log('Game started');
     addEventHandlers();
     display_stats();
+    randomizeAndGenerateCards();
 }
 
 function addEventHandlers(){
@@ -53,10 +55,42 @@ function clickHandler(){
             setTimeout(resetCards, 1500);
             display_stats();
         }
-
     }
+}
 
+function randomizeAndGenerateCards(){
+    var doubleImages = images.concat(images);
+    shuffle(doubleImages);
 
+    for (var i =0; i < doubleImages.length;i++){
+        var container = $('<div>').addClass('container');
+        var card = $('<div>').addClass('card');
+        var frontOfCard = $('<div>').addClass('front');
+        var backOfCard = $('<div>').addClass('back');
+        var imageOfCard = $('<img>').addClass('imageFront').attr('src','images/'+doubleImages[i]);
+        frontOfCard.append(imageOfCard);
+        card.append(frontOfCard,backOfCard);
+        container.append(card);
+        $('.card-area').append(container);
+    }
+}
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
 }
 
 function resetCards(){
