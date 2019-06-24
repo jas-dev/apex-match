@@ -9,14 +9,14 @@ var gamesPlayed = 0;
 var attempts = 0;
 var accuracy = 0 + "%";
 var canBeClicked = true;
-var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','Image6.png','Image7.png','Image8.png','Image9.png'];
+var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','AR.png','apex_icon2.png','apex-logo-weathered.png','apex-logo-darkred.png'];
 
 
 function startGame(){
     console.log('Game started');
+    randomizeAndGenerateCards();
     addEventHandlers();
     display_stats();
-    randomizeAndGenerateCards();
 }
 
 function addEventHandlers(){
@@ -63,15 +63,15 @@ function randomizeAndGenerateCards(){
     shuffle(doubleImages);
 
     for (var i =0; i < doubleImages.length;i++){
-        var container = $('<div>').addClass('container');
+        /*var container = $('<div>').addClass('container');*/
         var card = $('<div>').addClass('card');
-        var frontOfCard = $('<div>').addClass('front');
-        var backOfCard = $('<div>').addClass('back');
-        var imageOfCard = $('<img>').addClass('imageFront').attr('src','images/'+doubleImages[i]);
-        frontOfCard.append(imageOfCard);
-        card.append(frontOfCard,backOfCard);
-        container.append(card);
-        $('.card-area').append(container);
+        var front = $('<div>').addClass('front').css("background-image", `url(images/${doubleImages[i]}`);
+        var back = $('<div>').addClass('back');
+        /*var imageOfCard = $('<img>').addClass('imageFront').attr('src','images/'+doubleImages[i]);
+        front.append(imageOfCard);*/
+        card.append(front,back);
+
+        $('#game-area').append(card);
     }
 }
 

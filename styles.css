@@ -14,7 +14,7 @@ header{
     width: 16%;
     position: relative;
     left: 2%;
-    background-image: url("img/apex_icon2.png");
+    background-image: url("images/apex_icon2.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -56,13 +56,16 @@ main{
     position: relative;
 }
 #game-area{
-    height: 90%;
-    width: 95%;
+    height: 98%;
+    width: 98%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+
+}
+.container{
 
 }
 .card{
@@ -82,7 +85,7 @@ main{
     height:100%;
     width: 100%;
     position: absolute;
-    background-image: url("img/Blank.png");
+    background-image: url("images/Blank.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
