@@ -63,15 +63,13 @@ function randomizeAndGenerateCards(){
     shuffle(doubleImages);
 
     for (var i =0; i < doubleImages.length;i++){
-        /*var container = $('<div>').addClass('container');*/
+        var container = $('<div>').addClass('container');
         var card = $('<div>').addClass('card');
         var front = $('<div>').addClass('front').css("background-image", `url(images/${doubleImages[i]}`);
-        var back = $('<div>').addClass('back');
-        /*var imageOfCard = $('<img>').addClass('imageFront').attr('src','images/'+doubleImages[i]);
-        front.append(imageOfCard);*/
-        card.append(front,back);
-
-        $('#game-area').append(card);
+        var back = $('<div>').addClass('back').css("background-image", "url(images/Blank.png)");
+        card.append(back, front);
+        container.append(card);
+        $('#game-area').append(container);
     }
 }
 
@@ -127,5 +125,15 @@ function reset_stats(){
     $('div .card').removeClass('revealed');
     gamesPlayed++;
     display_stats();
+
 }
 
+function startAudio() {
+    $('.card-area').onload(playSound);
+}
+
+function playSound() {
+    var player = new Audio('');
+    player.volume = .7;
+    player.play();
+}

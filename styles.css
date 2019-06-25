@@ -1,6 +1,10 @@
 
 body{
     margin: 0;
+    background-image:   url("images/apex-background.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 header{
     height: 8vh;
@@ -48,7 +52,7 @@ a:link, a:visited {
 }
 main{
     height: 88vh;
-    background-color: rgba(55,55,65,0.85);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +60,7 @@ main{
     position: relative;
 }
 #game-area{
-    height: 98%;
+    height: 86%;
     width: 98%;
     margin: auto;
     display: flex;
@@ -66,30 +70,34 @@ main{
 
 }
 .container{
-
-}
-.card{
     height: 25%;
     width: 16%;
     position: relative;
+    perspective: 600px
 }
-.front{
-    height:100%;
+.card{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.card .front, .card.revealed .back {
+    transform: rotateY(180deg);
+}
+.card.revealed .front, .card .back {
+    transform: rotateY(0deg);
+}
+.front, .back {
+    height: 100%;
     width: 100%;
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    transition: transform 0.25s;
+    backface-visibility: hidden;
 }
-.back{
-    height:100%;
-    width: 100%;
-    position: absolute;
-    background-image: url("images/Blank.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+
 footer{
     display: flex;
     background-color: rgba(55,55,65,0.85);
@@ -106,9 +114,11 @@ footer{
     width: 6%;
     background-color: whitesmoke;
 }
+/*
 .revealed >.back{
     display: none;
 }
+*/
 
 
 
