@@ -1,5 +1,4 @@
 
-
 $(document).ready(startGame);
 
 var firstCard = null;
@@ -10,7 +9,7 @@ var attempts = 0;
 var accuracy = 0 + "%";
 var canBeClicked = true;
 var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','AR.png','apex_icon2.png','apex-logo-weathered.png','apex-logo-darkred.png'];
-
+var player = null;
 
 function startGame(){
     console.log('Game started');
@@ -134,7 +133,7 @@ function startAudio() {
 }
 
 function playSound() {
-    var player = new Audio('');
+    player = new Audio('');
     player.volume = .7;
     player.play();
 }
