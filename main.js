@@ -15,15 +15,11 @@ var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','AR.png',
 function startGame(){
     console.log('Game started');
     randomizeAndGenerateCards();
-    addEventHandlers();
+    $('.reset').click(reset_game);
     display_stats();
-}
 
-function addEventHandlers(){
-    $('.card').click(clickHandler);
-    $('.reset').click(reset_stats);
+    //startAudio();
 }
-
 function clickHandler(){
     if(!canBeClicked || $(this).hasClass('revealed')){
         //if caBeClicked var is falsy exit click handler so game "stops playing" until its truthy again, or if card that was clicked already has class of revealed, exit click handler for that moment so multiple clicks on same element cant be used to exploit game logic
@@ -71,6 +67,8 @@ function randomizeAndGenerateCards(){
         container.append(card);
         $('#game-area').append(container);
     }
+    $('#game-area').fadeIn('fast','linear');
+    $('.card').click(clickHandler);
 }
 
 function shuffle(array) {
@@ -115,7 +113,7 @@ function display_stats(){
 
 }
 
-function reset_stats(){
+function reset_game(){
     console.log("reset stats has been triggered");
     accuracy = 0;
     matches = 0;
@@ -125,11 +123,14 @@ function reset_stats(){
     $('div .card').removeClass('revealed');
     gamesPlayed++;
     display_stats();
-
+    $('#game-area').fadeOut('fast', 'swing', ()=>{
+        $('#game-area').empty();
+        randomizeAndGenerateCards();
+    });
 }
 
 function startAudio() {
-    $('.card-area').onload(playSound);
+    $('#game-area').onload(playSound);
 }
 
 function playSound() {
