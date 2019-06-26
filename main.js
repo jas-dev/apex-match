@@ -11,15 +11,33 @@ var canBeClicked = true;
 var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','AR.png','apex_icon2.png','apex-logo-weathered.png','apex-logo-darkred.png'];
 var player = null;
 
-function startGame(){
+
+
+function startGame() {
     console.log('Game started');
     randomizeAndGenerateCards();
+    startAudio();
+    soundsClickHandler();
     $('.reset').click(reset_game);
     display_stats();
 
-    //startAudio();
 }
-function clickHandler(){
+function startAudio() {
+    player = new Sounds();
+    player.startBGM();
+
+}
+function soundsClickHandler(){
+    $('.reset').click(()=>{
+        player.playSound('reset');
+    });
+
+    $('.back').click(()=>{
+        player.playSound('simpleClick');
+    });
+}
+
+function cardClickHandler(){
     if(!canBeClicked || $(this).hasClass('revealed')){
         //if caBeClicked var is falsy exit click handler so game "stops playing" until its truthy again, or if card that was clicked already has class of revealed, exit click handler for that moment so multiple clicks on same element cant be used to exploit game logic
         return;
@@ -36,6 +54,7 @@ function clickHandler(){
         var secondCardImg = $(secondCard).find('.front').css('background-image');
         //finds front background image of the second card clicked, returns its value and stores in firstCardImg
         if(firstCardImg === secondCardImg){
+            player.playSound('match');
             matches++;
             attempts++;
             console.log ('MATCH');
@@ -44,6 +63,7 @@ function clickHandler(){
             display_stats();
 
         }else{
+            player.playSound('noMatch');
             attempts++;
             console.log('NO MATCH');
             canBeClicked = false;
@@ -67,7 +87,8 @@ function randomizeAndGenerateCards(){
         $('#game-area').append(container);
     }
     $('#game-area').fadeIn('fast','linear');
-    $('.card').click(clickHandler);
+    $('.card').click(cardClickHandler);
+    soundsClickHandler();
 }
 
 function shuffle(array) {
@@ -109,7 +130,6 @@ function display_stats(){
         var accuracyConverted= (accuracy*100).toFixed(2)+ "%";
         $('.accuracy .value').text(accuracyConverted);
     }
-
 }
 
 function reset_game(){
@@ -128,12 +148,3 @@ function reset_game(){
     });
 }
 
-function startAudio() {
-    $('#game-area').onload(playSound);
-}
-
-function playSound() {
-    player = new Audio('');
-    player.volume = .7;
-    player.play();
-}
