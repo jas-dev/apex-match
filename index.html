@@ -3,14 +3,12 @@
 
 <head>
     <title>Apex Legends Memory Match Game</title>
-
+    <meta name="viewport" content="">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="sounds.js"></script>
     <script src="main.js"></script>
-
 </head>
-
 
 <body>
 
@@ -18,28 +16,29 @@
 
     <div class="game-logo"></div>
 
-    <div class="games-played">
-        <div class="label"># Played</div>
-        <div class="value"></div>
-
+    <div class="controls">
+        <div class="reset"></div>
+        <div class="mute-fx"></div>
+        <div class="mute-bgm"></div>
     </div>
 
-    <div class="attempts">
-        <div class="label">Attempts</div>
-        <div class="value"></div>
-
+    <div class="stats">
+        <div class="games-played">
+            <div class="label">Games</div>
+            <div class="value"></div>
+        </div>
+        <div class="attempts">
+            <div class="label">Attempts</div>
+            <div class="value"></div>
+        </div>
+        <div class="accuracy">
+            <div class="label">Accuracy</div>
+            <div class="value"></div>
+        </div>
     </div>
 
-    <div class="accuracy">
-        <div class="label">Accuracy</div>
-        <div class="value"></div>
 
-    </div>
 
-    <div class="about">
-        Memory Match
-        <a href="#">About</a>
-    </div>
 
 </header>
 
@@ -47,10 +46,7 @@
     <div id="game-area"></div>
 </main>
 
-<footer>
-    <div class="reset">Reset</div>
-    <div class="settings">Settings</div>
-</footer>
+
 
 </body>
 

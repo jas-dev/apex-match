@@ -5,40 +5,84 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
+    height: 100vh;
+
 }
 header{
-    height: 8vh;
-    background-color: brown;
+    height: 75px;
+    background-color: #0c0a0abd;
     display: flex;
     align-items: flex-start;
-    font-size: 15px;
+    font-size: 1.4rem;
+    position: relative;
+    justify-content: flex-start;
+}
+.controls{
+    height: 100%;
+    width: 461px;
+    position: absolute;
+    font-size: 2vmin;
+    color: whitesmoke;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+
+    /* display: inline; */
+    left: 15%;
+
+
+}
+.reset, .mute-fx, .mute-bgm{
+    height: 100%;
+    width: 150px;
+    background-color: #ca1d29;
+    transform: skewX(45deg);
+    display: inline-block;
+    position: relative;
+
+}
+.stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;
+    width: 19%;
+    position: relative;
+    left: 65%;
 }
 .game-logo{
-    height: 100%;
-    width: 16%;
-    position: relative;
-    left: 2%;
-    background-image: url("images/apex_icon2.png");
+    height: 115px;
+    width: 105px;
+    position: absolute;
+    background-image: url(images/ApexCornerIcon.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 .games-played, .attempts, .accuracy{
-    height: 100%;
-    width: 12%;
+    height: 33%;
+    width: 33%;
     position: relative;
-    left: 12%;
+    left: 25%;
     margin: 0 1px;
-    font-size: 3vmin;
+    font-size: 1rem;
     color: whitesmoke;
+
 }
-.about{
-    height: 40%;
-    width: 25%;
-    position: relative;
-    left: 20%;
-    font-size: 2vmin;
-    color: whitesmoke;
+@media screen and (max-width: 955px){
+    .header{
+        height: 50px;
+    }
+    .reset, .mute-fx, .mute-bgm{
+        width: 138px; /*90px*/
+    }
+    .stats{
+        height: 100%;
+        left: 85%;
+        display: unset;
+    }
 }
+@media screen and (max-width: 9)
 a:link, a:visited {
     background-color: #f44336;
     color: white;
@@ -52,7 +96,6 @@ a:link, a:visited {
 }
 main{
     height: 88vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,7 +105,6 @@ main{
 #game-area{
     height: 86%;
     width: 98%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -97,27 +139,6 @@ main{
     backface-visibility: hidden;
 }
 
-footer{
-    display: flex;
-    background-color: rgba(55,55,65,0.85);
-    height: 4vh;
-    justify-content: space-between;
-}
-.reset{
-    height: 100%;
-    width: 6%;
-    background-color: whitesmoke;
-}
-.settings{
-    height: 100%;
-    width: 6%;
-    background-color: whitesmoke;
-}
-/*
-.revealed >.back{
-    display: none;
-}
-*/
 
 
 
