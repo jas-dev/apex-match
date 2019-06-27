@@ -64,7 +64,6 @@ header{
     height: 33%;
     width: 100%;
     position: relative;
-    margin: 0 1px;
     font-size: 2rem;
     color: whitesmoke;
 
@@ -93,16 +92,31 @@ header{
 }
 @media screen and (max-width: 1066px){
     .controls{
-        left: 35%;
+        left: 17%;
     }
     .stats{
-        left: 36%;
-        width: 50%;
-        top: 100%;
+        left: 62%;
+        width: 36%;
+
     }
     .games-played, .attempts, .accuracy{
            font-size: 1.2rem;
        }
+    .game-area{
+        height: 77%;
+    }
+}
+@media screen and (max-width: 1035px){
+    .controls{
+        left: 19%;
+    }
+    .stats{
+        left: 70%;
+        width: 30%;
+    }
+    .games-played, .attempts, .accuracy{
+        font-size: 1.1rem;
+    }
     .game-area{
         height: 77%;
     }
@@ -117,10 +131,47 @@ header{
         top: 100%;
     }
     .games-played, .attempts, .accuracy{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     .game-area{
         height: 77%;
+    }
+}
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) {
+    .stats{
+        left: 44%;
+    }
+}
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3) {
+    .stats{
+        left: 35%;
+    }
+}
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .stats{
+        width: 35%;
+        left: 60%;
+        top: 0;
+
+    }
+    .controls{
+        left: 15%;
+    }
+}
+@media only screen and (orientation: portrait) {
+    .game-area{
+        display: none;
     }
 }
 
@@ -131,9 +182,6 @@ a:link, a:visited {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-}
-.value{
-    border-top: 1px solid black;
 }
 main{
     height: 88vh;
