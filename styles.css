@@ -179,7 +179,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     }
     body{
-
+        display: none;
     }
 }
 

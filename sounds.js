@@ -4,8 +4,8 @@ class Sounds {
             confirmSelect: new Audio('sounds/ConfirmSelect.wav'),
             loadSelect: new Audio('sounds/LoadSelect.wav'),
             noMatch: new Audio('sounds/NoMatch.wav'),
-            punchSelect: new Audio('sounds/PunchSelect.wav'),
             match: new Audio('sounds/Match.wav'),
+            punchSelect: new Audio('sounds/PunchSelect.wav'),
             reset: new Audio('sounds/Reset.wav'),
             select1: new Audio('sounds/Select2.wav'),
             select2: new Audio('sounds/Select2.wav'),
@@ -46,26 +46,31 @@ class Sounds {
 
     startBGM() {
         this.sounds.bgm.loop = true;
-        this.sounds.bgm.play();
     }
 
     playSound(sound) {
         this.sounds[sound].play();
     }
 
-    toggleBGM() {
+    toggleBGM(e) {
+        e.preventDefault();
         const muted = !this.sounds.bgm.muted;
-        this.sounds.bgm.muted = muted;
+        if(this.sounds.bgm.played.length === 0){
+            this.sounds.bgm.play();
+        }else{
+            this.sounds.bgm.muted = muted;
+
+        }
         //this.sounds.win.muted = muted;
-        return muted;
     }
 
-    toggleFX() {
+    toggleFX(e) {
+        e.preventDefault();
         const muted = !this.sounds.simpleClick.muted;
         this.sounds.confirmSelect.muted = muted;
         this.sounds.loadSelect.muted =  muted;
-        this.sounds.match.muted =  muted;
         this.sounds.noMatch.muted= muted;
+        this.sounds.match.muted =  muted;
         this.sounds.punchSelect.muted =  muted;
         this.sounds.reset.muted = muted;
         this.sounds.select1.muted =  muted;
@@ -76,6 +81,6 @@ class Sounds {
     }
 
     playTheme() {
-        this.sounds.bgm.pause();
+        this.sounds.bgm.play();
     }
 }

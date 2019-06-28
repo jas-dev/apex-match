@@ -31,7 +31,12 @@ function soundsClickHandler(){
     $('.reset').click(()=>{
         player.playSound('reset');
     });
-
+    $('.mute-fx').click((e)=>{
+       player.toggleFX(e);
+    });
+    $('.mute-bgm').click((e)=>{
+        player.toggleBGM(e);
+    });
     $('.back').click(()=>{
         player.playSound('simpleClick');
     });
