@@ -12,7 +12,6 @@ header{
     background-color: #0c0a0abd;
     display: flex;
     align-items: flex-start;
-    font-size: 1.4rem;
     position: relative;
     justify-content: flex-start;
     font-family: 'Teko', sans-serif;
@@ -23,11 +22,6 @@ header{
     position: absolute;
     font-size: 2vmin;
     color: whitesmoke;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: flex-start; */
-    /* align-items: flex-start; */
-    /* display: inline; */
     left: 17%;
 }
 .reset, .mute-fx, .mute-bgm{
@@ -47,13 +41,15 @@ header{
     font-size: 1.5rem;
 }
 .stats{
-    display: flex;
+    /*display: flex;*/
     flex-direction: row;
     justify-content: flex-start;
     height: 100%;
-    width: 35%;
+    width: 31vw;
     position: relative;
-    left: 55%;
+    left: 61%;
+    font-size: 1.5rem;
+    display: inline-block;
 }
 .value, .label{
     display: inline;
@@ -70,54 +66,29 @@ header{
     height: 33%;
     width: 100%;
     position: relative;
-    font-size: 2rem;
     color: whitesmoke;
+    display: inline;
+    margin-left: 50px;
 
-}
-/*@media screen and (max-width: 955px){
-    .header{
-        height: 50px;
-    }
-    .reset, .mute-fx, .mute-bgm{
-        width: 136px; !*90px*!
-    }
-    .stats{
-        !*height: 100%;
-        left: 85%;*!
-        display: unset;
-    }
-}*/
-
-@media screen and (max-width: 1352px){
-    .games-played, .attempts, .accuracy{
-        /*font-size: 1.5rem;*/
-    }
-    .stats{
-        left: 60%;
-    }
 }
 @media screen and (max-width: 1125px){
     .controls{
         left: 17%;
     }
     .stats{
-        left: 65%;
         width: 35%;
     }
-    .games-played, .attempts, .accuracy{
-           font-size: 1.2rem;
-       }
-    .game-area{
+    /*.game-area{
         height: 77%;
-    }
+    }*/
 }
 @media screen and (max-width: 1035px){
     .controls{
         /*left: 19%;*/
     }
     .stats{
-        left: 66%;
-        width: 30%;
+        left: 64%;
+        width: 35%;
     }
     .games-played, .attempts, .accuracy{
         font-size: 1.1rem;
@@ -126,14 +97,15 @@ header{
         height: 77%;
     }
 }
-@media screen and (max-width: 920px){
+@media screen and (max-width: 980px){
     .controls{
-        left: 20%;
+        left: 24%;
     }
     .stats{
-        left: 28%;
-        width: 50%;
+        left: 32%;
+        /*width: 50%;*/
         top: 100%;
+        color: yellow;
     }
     .games-played, .attempts, .accuracy{
         font-size: 1.1rem;
@@ -144,11 +116,30 @@ header{
 }
 @media only screen
 and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+    .stats{
+        left: 24%;
+        top: 94%;
+        width: 44%;
+    }
+}
+@media only screen
+and (min-device-width: 375px)
 and (max-device-width: 812px)
 and (-webkit-min-device-pixel-ratio: 3)
 and (orientation: landscape) {
     .stats{
-        left: 44%;
+        left: 24%;
+        top: 94%;
+        width: 44%;
+    }
+    .controls{
+        left: 20%;
+    }
+    #game-area{
+        height: 80%;
     }
 }
 @media only screen
@@ -156,7 +147,8 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-min-device-pixel-ratio: 3) {
     .stats{
-        left: 35%;
+        left: 27%;
+        width: 40%;
     }
 }
 @media only screen

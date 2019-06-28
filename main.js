@@ -29,12 +29,15 @@ function startAudio() {
 }
 function soundsClickHandler(){
     $('.reset').click(()=>{
+        player.playSound('punchSelect');
         player.playSound('reset');
     });
     $('.mute-fx').click(()=>{
-       player.toggleFX();
+        player.playSound('punchSelect');
+        player.toggleFX();
     });
     $('.mute-bgm').click(()=>{
+        player.playSound('punchSelect');
         player.toggleBGM();
     });
     $('.back').click(()=>{
