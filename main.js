@@ -31,11 +31,11 @@ function soundsClickHandler(){
     $('.reset').click(()=>{
         player.playSound('reset');
     });
-    $('.mute-fx').click((e)=>{
-       player.toggleFX(e);
+    $('.mute-fx').click(()=>{
+       player.toggleFX();
     });
-    $('.mute-bgm').click((e)=>{
-        player.toggleBGM(e);
+    $('.mute-bgm').click(()=>{
+        player.toggleBGM();
     });
     $('.back').click(()=>{
         player.playSound('simpleClick');
@@ -93,7 +93,7 @@ function randomizeAndGenerateCards(){
     }
     $('#game-area').fadeIn('fast','linear');
     $('.card').click(cardClickHandler);
-    soundsClickHandler();
+
 }
 
 function shuffle(array) {
@@ -121,6 +121,7 @@ function resetCards(){
     firstCard = null;
     secondCard = null;
     canBeClicked = true;
+
 }
 
 function display_stats(){
@@ -150,6 +151,7 @@ function reset_game(){
     $('#game-area').fadeOut('fast', 'swing', ()=>{
         $('#game-area').empty();
         randomizeAndGenerateCards();
+        soundsClickHandler()
     });
 }
 

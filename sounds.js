@@ -52,32 +52,41 @@ class Sounds {
         this.sounds[sound].play();
     }
 
-    toggleBGM(e) {
-        e.preventDefault();
-        const muted = !this.sounds.bgm.muted;
+    toggleBGM() {
         if(this.sounds.bgm.played.length === 0){
             this.sounds.bgm.play();
-        }else{
-            this.sounds.bgm.muted = muted;
-
+        }else if(!!this.sounds.bgm.played.length){
+            this.sounds.bgm.muted = true;
         }
+
         //this.sounds.win.muted = muted;
     }
 
-    toggleFX(e) {
-        e.preventDefault();
-        const muted = !this.sounds.simpleClick.muted;
-        this.sounds.confirmSelect.muted = muted;
-        this.sounds.loadSelect.muted =  muted;
-        this.sounds.noMatch.muted= muted;
-        this.sounds.match.muted =  muted;
-        this.sounds.punchSelect.muted =  muted;
-        this.sounds.reset.muted = muted;
-        this.sounds.select1.muted =  muted;
-        this.sounds.select2.muted =  muted;
-        this.sounds.simpleClick.mutede = muted;
-        this.sounds.smallClick.muted =  muted;
-        return muted;
+    toggleFX() {
+        if(!this.sounds.simpleClick.muted){
+            this.sounds.confirmSelect.muted = true;
+            this.sounds.loadSelect.muted =  true;
+            this.sounds.noMatch.muted= true;
+            this.sounds.match.muted =  true;
+            this.sounds.punchSelect.muted =  true;
+            this.sounds.reset.muted = true;
+            this.sounds.select1.muted =  true;
+            this.sounds.select2.muted =  true;
+            this.sounds.simpleClick.muted = true;
+            this.sounds.smallClick.muted =  true;
+        }else{
+            this.sounds.confirmSelect.muted = false;
+            this.sounds.loadSelect.muted =  false;
+            this.sounds.noMatch.muted= false;
+            this.sounds.match.muted =  false;
+            this.sounds.punchSelect.muted =  false;
+            this.sounds.reset.muted = false;
+            this.sounds.select1.muted =  false;
+            this.sounds.select2.muted =  false;
+            this.sounds.simpleClick.muted = false;
+            this.sounds.smallClick.muted =  false;
+        }
+
     }
 
     playTheme() {
