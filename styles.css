@@ -4,9 +4,8 @@ body{
     background-image:   url("images/apex-background2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
     height: 100vh;
-
 }
 header{
     height: 60px;
@@ -39,6 +38,13 @@ header{
     display: inline-block;
     position: relative;
 
+}
+.reset-label, .mute-fx-label, .mute-bgm-label{
+    transform: skew(-45deg);
+    left: 30%;
+    position: absolute;
+    top: 29%;
+    font-size: 1.5rem;
 }
 .stats{
     display: flex;
@@ -84,20 +90,19 @@ header{
 
 @media screen and (max-width: 1352px){
     .games-played, .attempts, .accuracy{
-        font-size: 1.5rem;
+        /*font-size: 1.5rem;*/
     }
     .stats{
         left: 60%;
     }
 }
-@media screen and (max-width: 1066px){
+@media screen and (max-width: 1125px){
     .controls{
         left: 17%;
     }
     .stats{
-        left: 62%;
+        left: 65%;
         width: 36%;
-
     }
     .games-played, .attempts, .accuracy{
            font-size: 1.2rem;
@@ -108,10 +113,10 @@ header{
 }
 @media screen and (max-width: 1035px){
     .controls{
-        left: 19%;
+        /*left: 19%;*/
     }
     .stats{
-        left: 70%;
+        left: 66%;
         width: 30%;
     }
     .games-played, .attempts, .accuracy{
@@ -121,12 +126,12 @@ header{
         height: 77%;
     }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 920px){
     .controls{
-        left: 22%;
+        left: 20%;
     }
     .stats{
-        left: 36%;
+        left: 28%;
         width: 50%;
         top: 100%;
     }
@@ -161,7 +166,7 @@ and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 2) {
     .stats{
         width: 35%;
-        left: 60%;
+        left: 62%;
         top: 0;
 
     }
@@ -170,8 +175,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 }
 @media only screen and (orientation: portrait) {
-    .game-area{
-        display: none;
+    main{
+
+    }
+    body{
+
     }
 }
 

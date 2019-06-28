@@ -127,7 +127,7 @@ function display_stats(){
         $('.accuracy .value').text(accuracy);
     }else{
         accuracy = matches / attempts;
-        var accuracyConverted= (accuracy*100).toFixed(2)+ "%";
+        var accuracyConverted= (accuracy*100).toFixed(0)+ "%";
         $('.accuracy .value').text(accuracyConverted);
     }
 }
