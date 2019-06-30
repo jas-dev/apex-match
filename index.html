@@ -1,6 +1,5 @@
 <!DOCTYPEhtml>
 <html>
-
 <head>
     <title>Apex Legends Memory Match Game</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,25 +13,23 @@
 <body>
 
 <header>
-
     <div class="game-logo"></div>
-
     <div class="controls">
-        <div class="reset">
-            <div class="reset-label">
-                Reset
-            </div>
-        </div>
-        <div class="mute-fx">
-            <div class="mute-fx-label">
-                Sounds
-            </div>
-        </div>
-        <div class="mute-bgm">
-            <div class="mute-bgm-label">
-                Music
-            </div>
-        </div>
+        <button class="reset ">
+            <a class="reset-label">
+                RESET
+            </a>
+        </button>
+        <button class="mute-fx">
+            <a class="mute-fx-label">
+                SOUNDS
+            </a>
+        </button>
+        <button class="mute-bgm">
+            <a class="mute-bgm-label">
+                MUSIC
+            </a>
+        </button>
     </div>
 
     <div class="stats">
@@ -49,19 +46,12 @@
             <div class="value"></div>
         </div>
     </div>
-
-
-
-
 </header>
 
-<main>
+<div id="game-container">
     <div id="game-area"></div>
-</main>
-
-
+</div>
 
 </body>
-
 
 </html>

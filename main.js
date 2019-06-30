@@ -18,9 +18,18 @@ function startGame() {
     randomizeAndGenerateCards();
     startAudio();
     soundsClickHandler();
+    hoverEffects();
     $('.reset').click(reset_game);
     display_stats();
 
+}
+function hoverEffects(){
+    $('.reset').hover(
+        ()=>{
+        $('.reset').addClass('glow');
+    },  ()=>{
+        $('.reset').removeClass('glow')
+        });
 }
 function startAudio() {
     player = new Sounds();
@@ -157,4 +166,5 @@ function reset_game(){
         soundsClickHandler()
     });
 }
+
 

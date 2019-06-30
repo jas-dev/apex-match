@@ -1,38 +1,69 @@
 
 body{
     margin: 0;
-    background-image:   url("images/apex-background2.jpg");
+    padding: 0;
+    background-image: url(images/apex-background2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
 }
 header{
     height: 60px;
+    width: 100vw;
     background-color: #0c0a0abd;
-    display: flex;
-    align-items: flex-start;
     position: relative;
-    justify-content: flex-start;
     font-family: 'Teko', sans-serif;
+    display: inline-block;
 }
 .controls{
-    height: 100%;
+    height: 96%;
     width: 461px;
-    position: absolute;
+    position: relative;
     font-size: 2vmin;
     color: whitesmoke;
     left: 17%;
+    transform: skewX(45deg);
+    background-color: #8584858c;
+    border-width: 1px;
+    border-style: inset;
+    border-color: #595959;
+    border-image: initial;
+    border-bottom: 0;
+    display: inline-block;
+}
+button{
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    color: ghostwhite;
+    text-align: center;
+    align-items: flex-start;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    padding: 0;
+    border-width: 0;
+    /*border-left-width: 0;*/
+    border-style: ridge;
+    border-bottom-width: 3px;
+    border-bottom-color: #ff732e;
+    border-bottom-style: solid;
+    width: 32%;
+    height: 100%;
+    display: inline-block;
+    left: 12px;
+    background: linear-gradient(#95181e,#a0171e,#c81d27);
 }
 .reset, .mute-fx, .mute-bgm{
-    height: 100%;
-    width: 150px;
-    background-color: #ca1d29;
-    transform: skewX(45deg);
-    display: inline-block;
     position: relative;
-
 }
+/*.reset:hover, .mute-fx:hover, .mute-bgm:hover{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}*/
 .reset-label, .mute-fx-label, .mute-bgm-label{
     transform: skew(-45deg);
     left: 30%;
@@ -41,12 +72,9 @@ header{
     font-size: 1.5rem;
 }
 .stats{
-    /*display: flex;*/
-    flex-direction: row;
-    justify-content: flex-start;
     height: 100%;
-    width: 31vw;
-    position: relative;
+    width: 25vw;
+    position: absolute;
     left: 61%;
     font-size: 1.5rem;
     display: inline-block;
@@ -70,6 +98,72 @@ header{
     display: inline;
     margin-left: 50px;
 
+}
+#game-container{
+    position: absolute;
+    height: 91%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+/*main{
+    height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+}*/
+#game-area{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    height: 30%;
+    width: 16%;
+    position: relative;
+    perspective: 600px;
+    display: flex;
+    align-items: flex-end;
+}
+.card{
+    height: 89%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.card .front, .card.revealed .back {
+    transform: rotateY(180deg);
+}
+.card.revealed .front, .card .back {
+    transform: rotateY(0deg);
+}
+.front, .back {
+    height: 72%;
+    width: 100%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.25s;
+    backface-visibility: hidden;
+}
+.back{
+    cursor: pointer;
 }
 @media screen and (max-width: 1125px){
     .controls{
@@ -105,10 +199,11 @@ header{
         left: 32%;
         /*width: 50%;*/
         top: 100%;
-        color: yellow;
+
     }
     .games-played, .attempts, .accuracy{
         font-size: 1.1rem;
+        color: darkorange;
     }
     .game-area{
         height: 77%;
@@ -174,60 +269,29 @@ and (-webkit-min-device-pixel-ratio: 2) {
         display: none;
     }
 }
+/*.glow {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+    from {
+        box-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 10px #dde140, 0 0 20px #4dcc76, 0 0 30px #08cc22, 0 0 40px #08cc22, 0 0 70px #e60073;
+    }
 
-a:link, a:visited {
-    background-color: #f44336;
-    color: white;
-    padding: 5px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    to {
+        box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #4dcc76, 0 0 50px #4dcc76, 0 0 60px #4dcc76, 0 0 70px #08cc22, 0 0 80px #089c1a;
+    }
 }
-main{
-    height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-}
-#game-area{
-    height: 86%;
-    width: 98%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.container{
-    height: 25%;
-    width: 16%;
-    position: relative;
-    perspective: 600px
-}
-.card{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-}
-.card .front, .card.revealed .back {
-    transform: rotateY(180deg);
-}
-.card.revealed .front, .card .back {
-    transform: rotateY(0deg);
-}
-.front, .back {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.25s;
-    backface-visibility: hidden;
-}
+@-webkit-keyframes glow {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #dde140, 0 0 25px #4dcc76, 0 0 30px #08cc22, 0 0 40px #08cc22, 0 0 70px #e60073;
+    }
 
+    to {
+        box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #4dcc76, 0 0 50px #4dcc76, 0 0 60px #4dcc76, 0 0 70px #08cc22, 0 0 80px #089c1a;
+    }
+}*/
 
 
 
