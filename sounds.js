@@ -7,10 +7,9 @@ class Sounds {
             match: new Audio('sounds/Match.wav'),
             punchSelect: new Audio('sounds/PunchSelect.wav'),
             reset: new Audio('sounds/Reset.wav'),
-            select1: new Audio('sounds/Select2.wav'),
+            select1: new Audio('sounds/Select1.wav'),
             select2: new Audio('sounds/Select2.wav'),
             simpleClick: new Audio('sounds/SimpleClick.wav'),
-            smallClick: new Audio('sounds/SmallClick.wav'),
             bgm: new Audio('sounds/bgm.mp3')
         };
 
@@ -18,7 +17,7 @@ class Sounds {
         this.toggleBGM = this.toggleBGM.bind(this);
         this.toggleFX = this.toggleFX.bind(this);
         this.setVolume();
-        this.addEventListeners();
+        //this.addEventListeners();
     }
 
     setVolume() {
@@ -31,34 +30,26 @@ class Sounds {
         this.sounds.select1.volume = .6;
         this.sounds.select2.volume = .6;
         this.sounds.simpleClick.volume = .5;
-        this.sounds.smallClick.volume = .5;
         this.sounds.bgm.volume = .1;
     }
 
-    addEventListeners() {
-     /*   const {bgm, //win} = this.sounds;
-        bgm.addEventListener('ended', () => {
-            setTimeout(() => {
-                bgm.play();
-            }, 750);
-        });*/
-    }
-
-    startBGM() {
-        this.sounds.bgm.loop = true;
-    }
+    /*addEventListeners() {
+           const {smallClick} = this.sounds;
+           smallClick.addEventListener('ended', ()=>{
+               setTimeout(()=>{
+                   player.toggleFX();
+               }, 1);
+           });
+    }*/
 
     playSound(sound) {
         this.sounds[sound].play();
     }
 
     toggleBGM() {
-        if(this.sounds.bgm.played.length === 0){
-            this.sounds.bgm.play();
-        }else if(!!this.sounds.bgm.played.length){
-            this.sounds.bgm.muted = true;
-        }
-
+        const muted = !this.sounds.bgm.muted;
+        this.sounds.bgm.muted = muted;
+        return muted;
         //this.sounds.win.muted = muted;
     }
 
@@ -73,7 +64,6 @@ class Sounds {
             this.sounds.select1.muted =  true;
             this.sounds.select2.muted =  true;
             this.sounds.simpleClick.muted = true;
-            this.sounds.smallClick.muted =  true;
         }else{
             this.sounds.confirmSelect.muted = false;
             this.sounds.loadSelect.muted =  false;
@@ -84,12 +74,11 @@ class Sounds {
             this.sounds.select1.muted =  false;
             this.sounds.select2.muted =  false;
             this.sounds.simpleClick.muted = false;
-            this.sounds.smallClick.muted =  false;
         }
 
     }
 
-    playTheme() {
-        this.sounds.bgm.play();
-    }
+    /* playTheme() {
+         this.sounds.bgm.play();
+     }*/
 }

@@ -2,7 +2,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url(images/apex-background2.jpg);
+    background-image: url('images/apex-background2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -10,6 +10,28 @@ body{
     width: 100vw;
     position: relative;
     overflow: hidden;
+}
+#advisory{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('images/apex-background3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+
+}
+.advisory-text{
+    font-family: 'Teko', sans-serif;
+    font-size: 8vmin;
+    text-align: center;
+    color: ghostwhite;
+    position: relative;
+    text-shadow: -3px 2px black;
+}
+.advisory-img{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 header{
     height: 60px;
@@ -47,7 +69,6 @@ button{
     font: inherit;
     padding: 0;
     border-width: 0;
-    /*border-left-width: 0;*/
     border-style: ridge;
     border-bottom-width: 3px;
     border-bottom-color: #ff732e;
@@ -73,7 +94,7 @@ button{
 }
 .stats{
     height: 100%;
-    width: 25vw;
+    width: 35vw;
     position: absolute;
     left: 61%;
     font-size: 1.5rem;
@@ -96,7 +117,7 @@ button{
     position: relative;
     color: whitesmoke;
     display: inline;
-    margin-left: 50px;
+    margin-left: 40px;
 
 }
 #game-container{
@@ -115,14 +136,6 @@ a:link, a:visited {
     text-decoration: none;
     display: inline-block;
 }
-/*main{
-    height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-}*/
 #game-area{
     height: 90%;
     width: 100%;
@@ -165,6 +178,9 @@ a:link, a:visited {
 .back{
     cursor: pointer;
 }
+.disabled{
+    background-color: #3c3c3c;
+}
 @media screen and (max-width: 1125px){
     .controls{
         left: 17%;
@@ -172,9 +188,6 @@ a:link, a:visited {
     .stats{
         width: 35%;
     }
-    /*.game-area{
-        height: 77%;
-    }*/
 }
 @media screen and (max-width: 1035px){
     .controls{
@@ -197,13 +210,12 @@ a:link, a:visited {
     }
     .stats{
         left: 32%;
-        /*width: 50%;*/
+        width: 50%;
         top: 100%;
 
     }
     .games-played, .attempts, .accuracy{
         font-size: 1.1rem;
-        color: darkorange;
     }
     .game-area{
         height: 77%;
@@ -215,9 +227,9 @@ and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: landscape) {
     .stats{
-        left: 24%;
+        left: 27%;
         top: 94%;
-        width: 44%;
+        width: 50%;
     }
 }
 @media only screen
@@ -242,8 +254,9 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-min-device-pixel-ratio: 3) {
     .stats{
-        left: 27%;
-        width: 40%;
+        left: 29%;
+        width: 50%;
+        top: 60px;
     }
 }
 @media only screen
@@ -255,18 +268,23 @@ and (-webkit-min-device-pixel-ratio: 2) {
         width: 35%;
         left: 62%;
         top: 0;
-
     }
     .controls{
         left: 15%;
     }
 }
 @media only screen and (orientation: portrait) {
-    main{
-
-    }
-    body{
+    header{
         display: none;
+    }
+    #game-container{
+        display: none;
+    }
+    #advisory{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
     }
 }
 /*.glow {

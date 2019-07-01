@@ -12,28 +12,19 @@ var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','AR.png',
 var player = null;
 
 
-
 function startGame() {
     console.log('Game started');
     randomizeAndGenerateCards();
     startAudio();
     soundsClickHandler();
-    hoverEffects();
+    handleMusicButton();
+    handleFXButton();
     $('.reset').click(reset_game);
     display_stats();
+}
 
-}
-function hoverEffects(){
-    $('.reset').hover(
-        ()=>{
-        $('.reset').addClass('glow');
-    },  ()=>{
-        $('.reset').removeClass('glow')
-        });
-}
 function startAudio() {
     player = new Sounds();
-    player.startBGM();
 
 }
 function soundsClickHandler(){
@@ -41,17 +32,40 @@ function soundsClickHandler(){
         player.playSound('punchSelect');
         player.playSound('reset');
     });
-    $('.mute-fx').click(()=>{
-        player.playSound('punchSelect');
+    $('.mute-fx').click(()=> {
+        player.playSound('select1');
         player.toggleFX();
     });
-    $('.mute-bgm').click(()=>{
-        player.playSound('punchSelect');
-        player.toggleBGM();
-    });
+    //feedback if you try to click another card before the failed matches have flipped back over
     $('.back').click(()=>{
-        player.playSound('simpleClick');
+        if(!canBeClicked) {
+            player.playSound('select2')
+        }else{
+            player.playSound('simpleClick');
+        }
     });
+}
+
+function handleMusicButton() {
+    $('.mute-bgm').click(()=>{
+        player.playSound('select1');
+        const muted = player.toggleBGM();
+        if (muted) {
+            $('.mute-bgm').addClass('disabled');
+        } else {
+            $('.mute-bgm').removeClass('disabled');
+        }
+    });
+
+}
+
+function handleFXButton() {
+    const muted = this.sounds.toggleFX();
+    if (muted) {
+        $('#fx-button').addClass('disabled');
+    } else {
+        $('#fx-button').removeClass('disabled');
+    }
 }
 
 function cardClickHandler(){
@@ -63,7 +77,7 @@ function cardClickHandler(){
     // adds class to card that was clicked
     if(firstCard === null){
         firstCard= this;
-    //breadcrumb to let me knw what if a first card has been chosen yet, and if not, stores the card that was just clicked into var firstCard
+        //breadcrumb to let me knw what if a first card has been chosen yet, and if not, stores the card that was just clicked into var firstCard
     }else{
         secondCard = this;
         var firstCardImg = $(firstCard).find('.front').css('background-image');
@@ -110,14 +124,11 @@ function randomizeAndGenerateCards(){
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
+    while (currentIndex !== 0) {
         // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-
         // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
