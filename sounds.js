@@ -29,18 +29,26 @@ class Sounds {
         this.sounds.select1.volume = .6;
         this.sounds.select2.volume = .6;
         this.sounds.simpleClick.volume = .5;
-        this.sounds.bgm.volume = .1;
+        this.sounds.bgm.volume = .2;
     }
-
-    playSound(sound) {
+    playSound(sound){
         this.sounds[sound].play();
     }
 
     toggleBGM() {
-        const muted = !this.sounds.bgm.muted;
-        this.sounds.bgm.muted = muted;
-        return muted;
-        //this.sounds.win.muted = muted;
+
+        if($('button.mute-bgm').hasClass('disabled')){
+            if(this.sounds.bgm.muted){
+                this.sounds.bgm.muted = false;
+            }else{
+                this.sounds.bgm.play();
+            }
+            return this.sounds.bgm.muted;
+
+        }else{
+            this.sounds.bgm.muted = true;
+            return this.sounds.bgm.muted;
+        }
     }
 
     toggleFX() {
@@ -69,8 +77,4 @@ class Sounds {
         }
         return muted
     }
-
-    /* playTheme() {
-         this.sounds.bgm.play();
-     }*/
 }

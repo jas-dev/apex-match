@@ -13,7 +13,6 @@ var player = null;
 
 
 function startGame() {
-    console.log('Game started');
     randomizeAndGenerateCards();
     startAudio();
     soundsClickHandler();
@@ -21,10 +20,8 @@ function startGame() {
     $('.reset').click(reset_game);
     display_stats();
 }
-
 function startAudio() {
     player = new Sounds();
-
 }
 function soundsClickHandler(){
     $('.reset').click(()=>{
@@ -34,10 +31,6 @@ function soundsClickHandler(){
     $('.mute-fx').click(()=> {
         player.playSound('select1');
         handleFXButton();
-    });
-    $('.mute-bgm').click(()=> {
-        player.playSound('select1');
-        handleMusicButton();
     });
     //feedback if you try to click another card before the failed matches have flipped back over
     $('.back').click(()=>{
@@ -51,12 +44,11 @@ function soundsClickHandler(){
 
 function handleMusicButton() {
     $('.mute-bgm').click(()=>{
-        player.playSound('select1');
-        const muted = player.toggleBGM();
-        if (muted) {
-            $('.mute-bgm').addClass('disabled');
-        } else {
+        const toggle = player.toggleBGM();
+        if (toggle === false) {
             $('.mute-bgm').removeClass('disabled');
+        } else {
+            $('.mute-bgm').addClass('disabled');
         }
     });
 }
@@ -72,7 +64,7 @@ function handleFXButton() {
 
 function cardClickHandler(){
     if(!canBeClicked || $(this).hasClass('revealed')){
-        //if caBeClicked var is falsy exit click handler so game "stops playing" until its truthy again, or if card that was clicked already has class of revealed, exit click handler for that moment so multiple clicks on same element cant be used to exploit game logic
+        //if caBeClicked var is falsy exit click handler until its truthy again, or if card that was clicked already has class of revealed, exit click handler for that moment so multiple clicks on same element cant be used to exploit game logic
         return;
     }
     $(this).addClass('revealed');
@@ -90,7 +82,6 @@ function cardClickHandler(){
             player.playSound('match');
             matches++;
             attempts++;
-            console.log ('MATCH');
             firstCard = null;
             secondCard = null;
             display_stats();
@@ -98,7 +89,6 @@ function cardClickHandler(){
         }else{
             player.playSound('noMatch');
             attempts++;
-            console.log('NO MATCH');
             canBeClicked = false;
             setTimeout(resetCards, 1500);
             display_stats();
@@ -140,7 +130,6 @@ function shuffle(array) {
 }
 
 function resetCards(){
-    console.log("resetCards has been triggered");
     $(firstCard).removeClass('revealed');
     $(secondCard).removeClass('revealed');
     firstCard = null;
@@ -150,7 +139,6 @@ function resetCards(){
 }
 
 function display_stats(){
-    console.log("display_stats has been triggered");
     $('.games-played .value').text(gamesPlayed);
     $('.attempts .value').text(attempts);
     if(!matches && !attempts){
@@ -164,7 +152,6 @@ function display_stats(){
 }
 
 function reset_game(){
-    console.log("reset stats has been triggered");
     accuracy = 0;
     matches = 0;
     attempts = 0;
@@ -176,16 +163,5 @@ function reset_game(){
     $('#game-area').fadeOut('fast', 'swing', ()=>{
         $('#game-area').empty();
         randomizeAndGenerateCards();
-        soundsClickHandler()
     });
 }
-/*const muted= !this.sounds.simpleClick.muted;
-this.sounds.confirmSelect.muted = muted;
-this.sounds.loadSelect.muted =  muted;
-this.sounds.noMatch.muted= muted;
-this.sounds.match.muted =  muted;
-this.sounds.punchSelect.muted =  muted;
-this.sounds.reset.muted = muted;
-this.sounds.select1.muted =  muted;
-this.sounds.select2.muted =  muted;
-this.sounds.simpleClick.muted = muted;*/

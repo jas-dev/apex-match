@@ -179,7 +179,7 @@ a:link, a:visited {
     cursor: pointer;
 }
 .disabled{
-    background: #ff732e ;
+    background: #5b4d4f;
 }
 @media screen and (max-width: 1125px){
     .controls{
@@ -233,23 +233,6 @@ and (orientation: landscape) {
     }
 }
 @media only screen
-and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) {
-    .stats{
-        left: 24%;
-        top: 94%;
-        width: 44%;
-    }
-    .controls{
-        left: 20%;
-    }
-    #game-area{
-        height: 80%;
-    }
-}
-@media only screen
 and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-min-device-pixel-ratio: 3) {
@@ -273,7 +256,27 @@ and (-webkit-min-device-pixel-ratio: 2) {
         left: 15%;
     }
 }
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) {
+    .stats{
+        left: 24%;
+        top: 94%;
+        width: 44%;
+    }
+    .controls{
+        left: 20%;
+    }
+    #game-area{
+        height: 80%;
+    }
+}
 @media only screen and (orientation: portrait) {
+    body{
+        background-image: none;
+    }
     header{
         display: none;
     }
