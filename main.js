@@ -15,35 +15,27 @@ var player = null;
 function startGame() {
     randomizeAndGenerateCards();
     startAudio();
-    soundsClickHandler();
     handleMusicButton();
+    handleFXButton();
+    handleResetButton();
     $('.reset').click(reset_game);
     display_stats();
 }
+
 function startAudio() {
     player = new Sounds();
 }
-function soundsClickHandler(){
+
+function handleResetButton(){
     $('.reset').click(()=>{
         player.playSound('punchSelect');
         player.playSound('reset');
-    });
-    $('.mute-fx').click(()=> {
-        player.playSound('select1');
-        handleFXButton();
-    });
-    //feedback if you try to click another card before the failed matches have flipped back over
-    $('.back').click(()=>{
-        if(!canBeClicked) {
-            player.playSound('select2')
-        }else{
-            player.playSound('simpleClick');
-        }
     });
 }
 
 function handleMusicButton() {
     $('.mute-bgm').click(()=>{
+        player.playSound('select1');
         const toggle = player.toggleBGM();
         if (toggle === false) {
             $('.mute-bgm').removeClass('disabled');
@@ -54,20 +46,25 @@ function handleMusicButton() {
 }
 
 function handleFXButton() {
-    const muted = player.toggleFX();
-    if (muted) {
-        $('.mute-fx').addClass('disabled');
-    } else {
-        $('.mute-fx').removeClass('disabled');
-    }
+    $('.mute-fx').click(()=> {
+        player.playSound('select1');
+        const muted = player.toggleFX();
+        if (muted) {
+            $('.mute-fx').addClass('disabled');
+        }else{
+            $('.mute-fx').removeClass('disabled');
+        }
+    });
 }
 
 function cardClickHandler(){
     if(!canBeClicked || $(this).hasClass('revealed')){
         //if caBeClicked var is falsy exit click handler until its truthy again, or if card that was clicked already has class of revealed, exit click handler for that moment so multiple clicks on same element cant be used to exploit game logic
+        player.playSound('select2');
         return;
     }
     $(this).addClass('revealed');
+    player.playSound('simpleClick');
     // adds class to card that was clicked
     if(firstCard === null){
         firstCard= this;
@@ -111,7 +108,6 @@ function randomizeAndGenerateCards(){
     }
     $('#game-area').fadeIn('fast','linear');
     $('.card').click(cardClickHandler);
-
 }
 
 function shuffle(array) {
@@ -135,7 +131,6 @@ function resetCards(){
     firstCard = null;
     secondCard = null;
     canBeClicked = true;
-
 }
 
 function display_stats(){
