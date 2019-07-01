@@ -17,7 +17,6 @@ class Sounds {
         this.toggleBGM = this.toggleBGM.bind(this);
         this.toggleFX = this.toggleFX.bind(this);
         this.setVolume();
-        //this.addEventListeners();
     }
 
     setVolume() {
@@ -33,15 +32,6 @@ class Sounds {
         this.sounds.bgm.volume = .1;
     }
 
-    /*addEventListeners() {
-           const {smallClick} = this.sounds;
-           smallClick.addEventListener('ended', ()=>{
-               setTimeout(()=>{
-                   player.toggleFX();
-               }, 1);
-           });
-    }*/
-
     playSound(sound) {
         this.sounds[sound].play();
     }
@@ -54,6 +44,8 @@ class Sounds {
     }
 
     toggleFX() {
+        const muted= !this.sounds.simpleClick.muted;
+
         if(!this.sounds.simpleClick.muted){
             this.sounds.confirmSelect.muted = true;
             this.sounds.loadSelect.muted =  true;
@@ -75,7 +67,7 @@ class Sounds {
             this.sounds.select2.muted =  false;
             this.sounds.simpleClick.muted = false;
         }
-
+        return muted
     }
 
     /* playTheme() {

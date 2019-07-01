@@ -18,7 +18,6 @@ function startGame() {
     startAudio();
     soundsClickHandler();
     handleMusicButton();
-    handleFXButton();
     $('.reset').click(reset_game);
     display_stats();
 }
@@ -34,7 +33,11 @@ function soundsClickHandler(){
     });
     $('.mute-fx').click(()=> {
         player.playSound('select1');
-        player.toggleFX();
+        handleFXButton();
+    });
+    $('.mute-bgm').click(()=> {
+        player.playSound('select1');
+        handleMusicButton();
     });
     //feedback if you try to click another card before the failed matches have flipped back over
     $('.back').click(()=>{
@@ -56,15 +59,14 @@ function handleMusicButton() {
             $('.mute-bgm').removeClass('disabled');
         }
     });
-
 }
 
 function handleFXButton() {
-    const muted = this.sounds.toggleFX();
+    const muted = player.toggleFX();
     if (muted) {
-        $('#fx-button').addClass('disabled');
+        $('.mute-fx').addClass('disabled');
     } else {
-        $('#fx-button').removeClass('disabled');
+        $('.mute-fx').removeClass('disabled');
     }
 }
 
@@ -177,5 +179,13 @@ function reset_game(){
         soundsClickHandler()
     });
 }
-
-
+/*const muted= !this.sounds.simpleClick.muted;
+this.sounds.confirmSelect.muted = muted;
+this.sounds.loadSelect.muted =  muted;
+this.sounds.noMatch.muted= muted;
+this.sounds.match.muted =  muted;
+this.sounds.punchSelect.muted =  muted;
+this.sounds.reset.muted = muted;
+this.sounds.select1.muted =  muted;
+this.sounds.select2.muted =  muted;
+this.sounds.simpleClick.muted = muted;*/

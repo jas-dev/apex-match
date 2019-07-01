@@ -179,7 +179,7 @@ a:link, a:visited {
     cursor: pointer;
 }
 .disabled{
-    background-color: #3c3c3c;
+    background: #ff732e ;
 }
 @media screen and (max-width: 1125px){
     .controls{
