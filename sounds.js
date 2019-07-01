@@ -1,8 +1,6 @@
 class Sounds {
     constructor() {
         this.sounds = {
-            confirmSelect: new Audio('sounds/ConfirmSelect.wav'),
-            loadSelect: new Audio('sounds/LoadSelect.wav'),
             noMatch: new Audio('sounds/NoMatch.wav'),
             match: new Audio('sounds/Match.wav'),
             punchSelect: new Audio('sounds/PunchSelect.wav'),
@@ -17,11 +15,10 @@ class Sounds {
         this.toggleBGM = this.toggleBGM.bind(this);
         this.toggleFX = this.toggleFX.bind(this);
         this.setVolume();
+        this.sounds.bgm.loop = true;
     }
 
     setVolume() {
-        this.sounds.confirmSelect.volume = .4;
-        this.sounds.loadSelect.volume = .4;
         this.sounds.noMatch.volume = .25;
         this.sounds.punchSelect.volume = .5;
         this.sounds.match.volume = .5;
@@ -36,7 +33,6 @@ class Sounds {
     }
 
     toggleBGM() {
-
         if($('button.mute-bgm').hasClass('disabled')){
             if(this.sounds.bgm.muted){
                 this.sounds.bgm.muted = false;
@@ -55,8 +51,6 @@ class Sounds {
         const muted= !this.sounds.simpleClick.muted;
 
         if(!this.sounds.simpleClick.muted){
-            this.sounds.confirmSelect.muted = true;
-            this.sounds.loadSelect.muted =  true;
             this.sounds.noMatch.muted= true;
             this.sounds.match.muted =  true;
             this.sounds.punchSelect.muted =  true;
@@ -65,8 +59,6 @@ class Sounds {
             this.sounds.select2.muted =  true;
             this.sounds.simpleClick.muted = true;
         }else{
-            this.sounds.confirmSelect.muted = false;
-            this.sounds.loadSelect.muted =  false;
             this.sounds.noMatch.muted= false;
             this.sounds.match.muted =  false;
             this.sounds.punchSelect.muted =  false;
