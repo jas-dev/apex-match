@@ -10,7 +10,7 @@ var accuracy = 0 + "%";
 var canBeClicked = true;
 var images = ['LMG.png','SMG.png','Shotguns.png','Pistol.png','SR.png','AR.png','apex_icon2.png','apex-logo-weathered.png','apex-logo-darkred.png'];
 var player = null;
-
+var championScreen = $('<div>', {class: 'champion-screen'}).append($('<div>', {class: 'champion-img'}));
 
 function startGame() {
     randomizeAndGenerateCards();
@@ -18,6 +18,7 @@ function startGame() {
     handleMusicButton();
     handleFXButton();
     handleResetButton();
+    handleVictoryFX();
     $('.reset').click(reset_game);
     display_stats();
 }
@@ -87,7 +88,7 @@ function cardClickHandler(){
             player.playSound('noMatch');
             attempts++;
             canBeClicked = false;
-            setTimeout(resetCards, 1500);
+            setTimeout(resetCards, 1000);
             display_stats();
         }
     }
@@ -106,6 +107,7 @@ function randomizeAndGenerateCards(){
         container.append(card);
         $('#game-area').append(container);
     }
+
     $('#game-area').fadeIn('fast','linear');
     $('.card').click(cardClickHandler);
 }
@@ -144,9 +146,11 @@ function display_stats(){
         var accuracyConverted= (accuracy*100).toFixed(0)+ "%";
         $('.accuracy .value').text(accuracyConverted);
     }
+    handleVictoryFX();
 }
 
 function reset_game(){
+    let gameArea = $('#game-area');
     accuracy = 0;
     matches = 0;
     attempts = 0;
@@ -155,8 +159,31 @@ function reset_game(){
     $('div .card').removeClass('revealed');
     gamesPlayed++;
     display_stats();
-    $('#game-area').fadeOut('fast', 'swing', ()=>{
-        $('#game-area').empty();
+    //if gamearea display is none
+        //gamearea empty
+        //randomizeandgenerate
+        //return
+    if($('#gameArea:hidden')){
+        championScreen.remove();
+        gameArea.empty();
         randomizeAndGenerateCards();
-    });
+    }else{
+        gameArea.fadeOut('fast', 'swing', ()=>{
+            gameArea.empty();
+            randomizeAndGenerateCards();
+        });
+    }
+}
+
+function handleVictoryFX(){
+    const gameArea = $('#game-area');
+    const gameContainer = $('#game-container');
+
+    if(matches === 9){
+        player.playSound('victory');
+        gameArea.fadeOut('fast', 'linear');
+        setTimeout(()=>{
+            gameContainer.append(championScreen.fadeIn('slow', 'swing'));
+        }, 1000);
+    }
 }

@@ -8,7 +8,8 @@ class Sounds {
             select1: new Audio('sounds/Select1.wav'),
             select2: new Audio('sounds/Select2.wav'),
             simpleClick: new Audio('sounds/SimpleClick.wav'),
-            bgm: new Audio('sounds/bgm.mp3')
+            bgm: new Audio('sounds/bgm.mp3'),
+            victory: new Audio('sounds/Victory.mp3')
         };
 
         this.playSound = this.playSound.bind(this);
@@ -27,6 +28,7 @@ class Sounds {
         this.sounds.select2.volume = .6;
         this.sounds.simpleClick.volume = .5;
         this.sounds.bgm.volume = .2;
+        this.sounds.victory.volume = .4;
     }
     playSound(sound){
         this.sounds[sound].play();
@@ -58,6 +60,7 @@ class Sounds {
             this.sounds.select1.muted =  true;
             this.sounds.select2.muted =  true;
             this.sounds.simpleClick.muted = true;
+            this.sounds.victory.muted = true
         }else{
             this.sounds.noMatch.muted= false;
             this.sounds.match.muted =  false;
@@ -66,6 +69,7 @@ class Sounds {
             this.sounds.select1.muted =  false;
             this.sounds.select2.muted =  false;
             this.sounds.simpleClick.muted = false;
+            this.sounds.victory.muted = false;
         }
         return muted
     }

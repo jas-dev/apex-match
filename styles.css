@@ -181,6 +181,23 @@ a:link, a:visited {
 .disabled{
     background: #5b4d4f;
 }
+.champion-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+.champion-img{
+    background-image: url('images/champion-img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 97%;
+    filter: contrast(1.5) saturate(3.5) brightness(2.5);
+}
 @media screen and (max-width: 1125px){
     .controls{
         left: 17%;
