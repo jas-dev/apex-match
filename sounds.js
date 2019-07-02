@@ -28,7 +28,7 @@ class Sounds {
         this.sounds.select2.volume = .6;
         this.sounds.simpleClick.volume = .5;
         this.sounds.bgm.volume = .2;
-        this.sounds.victory.volume = .4;
+        this.sounds.victory.volume = .3;
     }
     playSound(sound){
         this.sounds[sound].play();

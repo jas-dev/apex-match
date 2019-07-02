@@ -82,9 +82,6 @@ button{
 .reset, .mute-fx, .mute-bgm{
     position: relative;
 }
-/*.reset:hover, .mute-fx:hover, .mute-bgm:hover{
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}*/
 .reset-label, .mute-fx-label, .mute-bgm-label{
     transform: skew(-45deg);
     left: 30%;
@@ -107,7 +104,7 @@ button{
     height: 91px;
     width: 105px;
     position: absolute;
-    background-image: url(images/ApexCornerIcon.png);
+    background-image: url('images/ApexCornerIcon.png');
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -307,32 +304,17 @@ and (orientation: landscape) {
         flex-direction: column;
     }
 }
-/*.glow {
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
-}
-@-webkit-keyframes glow {
-    from {
-        box-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 10px #dde140, 0 0 20px #4dcc76, 0 0 30px #08cc22, 0 0 40px #08cc22, 0 0 70px #e60073;
-    }
-
-    to {
-        box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #4dcc76, 0 0 50px #4dcc76, 0 0 60px #4dcc76, 0 0 70px #08cc22, 0 0 80px #089c1a;
-    }
-}
-@-webkit-keyframes glow {
-    from {
-        box-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #dde140, 0 0 25px #4dcc76, 0 0 30px #08cc22, 0 0 40px #08cc22, 0 0 70px #e60073;
-    }
-
-    to {
-        box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #4dcc76, 0 0 50px #4dcc76, 0 0 60px #4dcc76, 0 0 70px #08cc22, 0 0 80px #089c1a;
-    }
+/*body.champion-screen::after{
+    background-image: url('images/champion-img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 97%;
+    filter: contrast(1.5) saturate(3.5) brightness(2.5);
+    position: fixed;
+    top: 0;
+    left: 1.5%;
+    content: "";
 }*/
-
-
-
-
-
 
