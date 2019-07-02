@@ -159,11 +159,8 @@ function reset_game(){
     $('div .card').removeClass('revealed');
     gamesPlayed++;
     display_stats();
-    //if gamearea display is none
-        //gamearea empty
-        //randomizeandgenerate
-        //return
-    if($('#gameArea:hidden')){
+
+    if(gameArea.css('display') === 'none'){
         championScreen.remove();
         gameArea.empty();
         randomizeAndGenerateCards();
