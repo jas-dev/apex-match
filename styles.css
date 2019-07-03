@@ -1,39 +1,129 @@
 
 body{
     margin: 0;
+    padding: 0;
+    background-image: url('images/apex-background2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+#advisory{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('images/apex-background3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+
+}
+.advisory-text{
+    font-family: 'Teko', sans-serif;
+    font-size: 8vmin;
+    text-align: center;
+    color: ghostwhite;
+    position: relative;
+    text-shadow: -3px 2px black;
+}
+.advisory-img{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 header{
-    height: 8vh;
-    background-color: brown;
-    display: flex;
+    height: 60px;
+    width: 100vw;
+    background-color: #0c0a0abd;
+    position: relative;
+    font-family: 'Teko', sans-serif;
+    display: inline-block;
+}
+.controls{
+    height: 96%;
+    width: 461px;
+    position: relative;
+    font-size: 2vmin;
+    color: whitesmoke;
+    left: 17%;
+    transform: skewX(45deg);
+    background-color: #8584858c;
+    border-width: 1px;
+    border-style: inset;
+    border-color: #595959;
+    border-image: initial;
+    border-bottom: 0;
+    display: inline-block;
+}
+button{
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    color: ghostwhite;
+    text-align: center;
     align-items: flex-start;
-    font-size: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    padding: 0;
+    border-width: 0;
+    border-style: ridge;
+    border-bottom-width: 3px;
+    border-bottom-color: #ff732e;
+    border-bottom-style: solid;
+    width: 32%;
+    height: 100%;
+    display: inline-block;
+    left: 12px;
+    background: linear-gradient(#95181e,#a0171e,#c81d27);
+}
+.reset, .mute-fx, .mute-bgm{
+    position: relative;
+}
+.reset-label, .mute-fx-label, .mute-bgm-label{
+    transform: skew(-45deg);
+    left: 30%;
+    position: absolute;
+    top: 29%;
+    font-size: 1.5rem;
+}
+.stats{
+    height: 100%;
+    width: 35vw;
+    position: absolute;
+    left: 61%;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+.value, .label{
+    display: inline;
 }
 .game-logo{
-    height: 100%;
-    width: 16%;
-    position: relative;
-    left: 2%;
-    background-image: url("img/apex_icon2.png");
+    height: 91px;
+    width: 105px;
+    position: absolute;
+    background-image: url('images/ApexCornerIcon.png');
     background-repeat: no-repeat;
     background-size: contain;
 }
 .games-played, .attempts, .accuracy{
-    height: 100%;
-    width: 12%;
+    height: 33%;
+    width: 100%;
     position: relative;
-    left: 12%;
-    margin: 0 1px;
-    font-size: 3vmin;
     color: whitesmoke;
+    display: inline;
+    margin-left: 40px;
+
 }
-.about{
-    height: 40%;
-    width: 25%;
-    position: relative;
-    left: 20%;
-    font-size: 2vmin;
-    color: whitesmoke;
+#game-container{
+    position: absolute;
+    height: 91%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 a:link, a:visited {
     background-color: #f44336;
@@ -43,72 +133,188 @@ a:link, a:visited {
     text-decoration: none;
     display: inline-block;
 }
-.value{
-    border-top: 1px solid black;
-}
-main{
-    height: 88vh;
-    background-color: rgba(55,55,65,0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-}
 #game-area{
     height: 90%;
-    width: 95%;
-    margin: auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-
+    justify-content: center;
+    align-items: center;
 }
-.card{
-    height: 25%;
+.container{
+    height: 30%;
     width: 16%;
     position: relative;
+    perspective: 600px;
+    display: flex;
+    align-items: flex-end;
 }
-.front{
-    height:100%;
+.card{
+    height: 89%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.card .front, .card.revealed .back {
+    transform: rotateY(180deg);
+}
+.card.revealed .front, .card .back {
+    transform: rotateY(0deg);
+}
+.front, .back {
+    height: 72%;
     width: 100%;
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    transition: transform 0.25s;
+    backface-visibility: hidden;
 }
 .back{
-    height:100%;
-    width: 100%;
-    position: absolute;
-    background-image: url("img/Apex-Legends-Blank.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    cursor: pointer;
 }
-footer{
+.disabled{
+    background: #5b4d4f;
+}
+.champion-screen{
     display: flex;
-    background-color: rgba(55,55,65,0.85);
-    height: 4vh;
-    justify-content: space-between;
-}
-.reset{
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    width: 6%;
-    background-color: whitesmoke;
+    width: 100%;
+
 }
-.settings{
+.champion-img{
+    background-image: url('images/champion-img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 100%;
-    width: 6%;
-    background-color: whitesmoke;
+    width: 97%;
+    filter: contrast(1.5) saturate(3.5) brightness(2.5);
 }
-.revealed >.back{
-    display: none;
+@media screen and (max-width: 1125px){
+    .controls{
+        left: 17%;
+    }
+    .stats{
+        width: 35%;
+    }
 }
+@media screen and (max-width: 1035px){
+    .controls{
+        /*left: 19%;*/
+    }
+    .stats{
+        left: 64%;
+        width: 35%;
+    }
+    .games-played, .attempts, .accuracy{
+        font-size: 1.1rem;
+    }
+    .game-area{
+        height: 77%;
+    }
+}
+@media screen and (max-width: 980px){
+    .controls{
+        left: 24%;
+    }
+    .stats{
+        left: 32%;
+        width: 50%;
+        top: 100%;
 
-
-
-
-
+    }
+    .games-played, .attempts, .accuracy{
+        font-size: 1.1rem;
+    }
+    .game-area{
+        height: 77%;
+    }
+}
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+    .stats{
+        left: 28%;
+        top: 94%;
+        width: 50%;
+    }
+}
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3) {
+    .stats{
+        left: 29%;
+        width: 50%;
+        top: 60px;
+    }
+}
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .stats{
+        width: 35%;
+        left: 62%;
+        top: 0;
+    }
+    .controls{
+        left: 15%;
+    }
+}
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) {
+    .stats{
+        left: 31%;
+        top: 94%;
+        width: 44%;
+    }
+    .controls{
+        left: 20%;
+    }
+    #game-area{
+        height: 80%;
+    }
+}
+@media only screen and (orientation: portrait) {
+    body{
+        background-image: none;
+    }
+    header{
+        display: none;
+    }
+    #game-container{
+        display: none;
+    }
+    #advisory{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+}
+/*body.champion-screen::after{
+    background-image: url('images/champion-img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 97%;
+    filter: contrast(1.5) saturate(3.5) brightness(2.5);
+    position: fixed;
+    top: 0;
+    left: 1.5%;
+    content: "";
+}*/
 

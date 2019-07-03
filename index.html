@@ -1,189 +1,62 @@
 <!DOCTYPEhtml>
 <html>
-
 <head>
     <title>Apex Legends Memory Match Game</title>
-
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-
+    <script src="sounds.js"></script>
     <script src="main.js"></script>
-
 </head>
-
-
 <body>
+<div id="advisory">
+    <div class="advisory-text">This game looks best in landscape mode - please turn your device!</div>
+    <div class="advisory-img">
+        <img src="images/rotate.gif" alt="">
+    </div>
+</div>
 
 <header>
-
     <div class="game-logo"></div>
-
-    <div class="games-played">
-        <div class="label"># Played</div>
-        <div class="value"></div>
-
+    <div class="controls">
+        <button class="reset ">
+            <a class="reset-label">
+                RESET
+            </a>
+        </button>
+        <button class="mute-fx">
+            <a class="mute-fx-label">
+                SOUNDS
+            </a>
+        </button>
+        <button class="mute-bgm disabled">
+            <a class="mute-bgm-label">
+                MUSIC
+            </a>
+        </button>
     </div>
 
-    <div class="attempts">
-        <div class="label">Attempts</div>
-        <div class="value"></div>
-
+    <div class="stats">
+        <div class="games-played">
+            <div class="label">Games</div>
+            <div class="value"></div>
+        </div>
+        <div class="attempts">
+            <div class="label">Attempts</div>
+            <div class="value"></div>
+        </div>
+        <div class="accuracy">
+            <div class="label">Accuracy</div>
+            <div class="value"></div>
+        </div>
     </div>
-
-    <div class="accuracy">
-        <div class="label">Accuracy</div>
-        <div class="value"></div>
-
-    </div>
-
-    <div class="about">
-        Memory Match Game
-        <a href="#">About</a>
-    </div>
-
 </header>
 
-<main>
-    <div id="game-area">
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sniper-Rifles.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Shotguns.png)"></div>
-
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Light-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Shotguns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Light-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Light-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Light-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Pistols.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sub-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Pistols.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sniper-Rifles.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Pistols.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sub-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Pistols.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sub-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sniper-Rifles.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sub-Machine-Guns.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="front" style="background-image: url(img/Apex-Legends-Sniper-Rifles.png)"></div>
-            <div class="back"></div>
-
-        </div>
-
-    </div>
-
-</main>
-
-<footer>
-    <div class="reset">Reset</div>
-    <div class="settings">Settings</div>
-</footer>
+<div id="game-container">
+    <div id="game-area"></div>
+</div>
 
 </body>
-
 
 </html>
